@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {requestApiData, getApiData} from '../actions/actions';
 
-import SearchComponent from '../components/SearchComponent';
+import SearchComponent from '../components/search/index';
 
 function SearchScreen(props) {
   const onPressed = input => {
