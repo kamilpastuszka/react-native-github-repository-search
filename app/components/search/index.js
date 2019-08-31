@@ -1,11 +1,12 @@
 import React, {Fragment, useState} from 'react';
 import {StyleSheet, View, Text, TextInput, Button, Picker} from 'react-native';
-import {Selection} from './Selection';
+import {programmingLanguages} from '../../api/constants';
 
 const App = props => {
-  const [userSearch, setUserSearch] = useState('');
+  const [query, setQuery] = useState('');
+  const [selection, setSelection] = useState('');
 
-  const handleChangedText = input => setUserSearch(input);
+  const handleChangedText = input => setQuery(input);
 
   return (
     <Fragment>
@@ -23,13 +24,19 @@ const App = props => {
             />
           </View>
 
-          <Selection />
+          <Picker
+            selectedValue={selection}
+            onValueChange={item => setSelection(item)}>
+            {programmingLanguages.map((language, idx) => (
+              <Picker.Item key={idx} label={language} value={language} />
+            ))}
+          </Picker>
 
           <View style={styles.searchButtonView}>
             <Button
               style={styles.searchButton}
               title="Search"
-              onPress={props.pressed.bind(this, userSearch)}
+              onPress={props.pressed.bind(this, query, selection)}
             />
           </View>
         </View>

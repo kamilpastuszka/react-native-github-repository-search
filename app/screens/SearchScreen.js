@@ -5,9 +5,9 @@ import {requestApiData, getApiData} from '../actions/actions';
 import SearchComponent from '../components/search/index';
 
 function SearchScreen(props) {
-  const onPressed = input => {
+  const onPressed = (query, selection) => {
     props.requestData();
-    props.getData(input);
+    props.getData(query, selection);
   };
   return <SearchComponent pressed={onPressed} />;
 }
@@ -15,7 +15,7 @@ function SearchScreen(props) {
 const mapPropsToDisptch = dispatch => {
   return {
     requestData: () => dispatch(requestApiData()),
-    getData: apiData => dispatch(getApiData(apiData)),
+    getData: (q, s) => dispatch(getApiData(q, s)),
   };
 };
 

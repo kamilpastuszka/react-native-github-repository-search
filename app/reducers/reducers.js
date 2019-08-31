@@ -1,7 +1,10 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-  query: '',
+  userInput: {
+    query: '',
+    selection: '',
+  },
 };
 
 const reducer = (state = initialState, action) => {
@@ -9,7 +12,11 @@ const reducer = (state = initialState, action) => {
     case actionTypes.GET_API_DATA:
       return {
         ...state,
-        query: state.query.concat(action.apiData),
+        userInput: {
+          ...state.userInput,
+          query: action.query,
+          selection: action.selection,
+        },
       };
   }
 };
