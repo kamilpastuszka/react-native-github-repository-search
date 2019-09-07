@@ -39,6 +39,14 @@ const App = props => {
               onPress={props.pressed.bind(this, query, selection)}
             />
           </View>
+
+          <View style={styles.searchButtonView}>
+            <Button
+              style={styles.searchButton}
+              title="change screen"
+              onPress={props.navigate.bind(this)}
+            />
+          </View>
         </View>
       </View>
     </Fragment>

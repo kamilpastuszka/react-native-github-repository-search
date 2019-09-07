@@ -9,7 +9,12 @@ function SearchScreen(props) {
     props.requestData();
     props.getData(query, selection);
   };
-  return <SearchComponent pressed={onPressed} />;
+
+  const onNavigate = () => {
+    props.navigation.navigate('List');
+  };
+
+  return <SearchComponent pressed={onPressed} navigate={onNavigate} />;
 }
 
 const mapPropsToDisptch = dispatch => {

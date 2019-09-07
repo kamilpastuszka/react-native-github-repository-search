@@ -9,3 +9,10 @@ export const getApiData = (query, selection) => {
     selection,
   };
 };
+
+export const saveApiData = data => {
+  return {
+    type: actionTypes.SAVE_API_DATA,
+    data,
+  };
+};

@@ -1,10 +1,30 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, FlatList} from 'react-native';
+import {connect} from 'react-redux';
+import ListComponent from '../components/list/index';
 
-export default function ListScreen() {
+function ListScreen(props) {
+  const repositories = props.repositories;
+
+  const listItem = itemData => {
+    return <ListComponent name={itemData.item.name} />;
+  };
+
   return (
-    <View>
-      <Text>sample text</Text>
-    </View>
+    <FlatList
+      keyExtractor={(item, index) => item.id.toString()}
+      data={repositories}
+      renderItem={listItem}
+    />
   );
 }
+
+const mapStateToProps = state => {
+  console.log('repos2', state);
+
+  return {
+    repositories: state.repositories,
+  };
+};
+
+export default connect(mapStateToProps)(ListScreen);

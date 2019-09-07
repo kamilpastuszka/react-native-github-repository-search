@@ -5,6 +5,7 @@ const initialState = {
     query: '',
     selection: '',
   },
+  repositories: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -17,6 +18,11 @@ const reducer = (state = initialState, action) => {
           query: action.query,
           selection: action.selection,
         },
+      };
+    case actionTypes.SAVE_API_DATA:
+      return {
+        ...state,
+        repositories: action.data.items,
       };
   }
 };
