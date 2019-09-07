@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {FlatList} from 'react-native';
 import {connect} from 'react-redux';
 import ListComponent from '../components/list/index';
 
@@ -7,7 +7,19 @@ function ListScreen(props) {
   const repositories = props.repositories;
 
   const listItem = itemData => {
-    return <ListComponent name={itemData.item.name} />;
+    return (
+      <ListComponent
+        name={itemData.item.name}
+        selected={() => {
+          props.navigation.navigate({
+            routeName: 'Detail',
+            params: {
+              itemId: itemData.item.id,
+            },
+          });
+        }}
+      />
+    );
   };
 
   return (
@@ -20,8 +32,6 @@ function ListScreen(props) {
 }
 
 const mapStateToProps = state => {
-  console.log('repos2', state);
-
   return {
     repositories: state.repositories,
   };

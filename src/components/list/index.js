@@ -1,10 +1,12 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 
-export default function ListComponent({name}) {
+export default function ListComponent({name, selected}) {
   return (
-    <View>
-      <Text>{name}</Text>
-    </View>
+    <TouchableOpacity onPress={selected}>
+      <View>
+        <Text>{name}</Text>
+      </View>
+    </TouchableOpacity>
   );
 }

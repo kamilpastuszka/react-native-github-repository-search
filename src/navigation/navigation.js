@@ -3,6 +3,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 
 import SearchScreen from '../screens/SearchScreen';
 import ListScreen from '../screens/ListScreen';
+import DetailScreen from '../screens/DetailScreen';
 
 const AppNavigator = createStackNavigator({
   Search: {
@@ -10,6 +11,9 @@ const AppNavigator = createStackNavigator({
   },
   List: {
     screen: ListScreen,
+  },
+  Detail: {
+    screen: DetailScreen,
   },
 });
 
