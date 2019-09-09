@@ -6,10 +6,17 @@ const initialState = {
     selection: '',
   },
   repositories: [],
+  isLoading: false,
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case actionTypes.REQUEST_API_DATA:
+      return {
+        ...state,
+        isLoading: true,
+      };
+
     case actionTypes.GET_API_DATA:
       return {
         ...state,
@@ -23,7 +30,10 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         repositories: action.data.items,
+        isLoading: false,
       };
+    default:
+      return state;
   }
 };
 

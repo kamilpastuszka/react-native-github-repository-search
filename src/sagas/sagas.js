@@ -10,7 +10,7 @@ function* getApiData() {
   const {query, selection} = yield select(getInput);
   const data = yield fetch(query, selection);
   yield put(saveApiData(data));
-  console.log(data);
+  console.log('api data', data);
 }
 
 export default function* rootSaga() {

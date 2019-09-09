@@ -6,15 +6,17 @@ import ListComponent from '../components/list/index';
 function ListScreen(props) {
   const repositories = props.repositories;
 
-  const listItem = itemData => {
+  const listItem = data => {
     return (
       <ListComponent
-        name={itemData.item.name}
+        name={data.item.name}
+        description={data.item.description}
+        stars={data.item.stargazers_count}
         selected={() => {
           props.navigation.navigate({
             routeName: 'Detail',
             params: {
-              itemId: itemData.item.id,
+              itemId: data.item.id,
             },
           });
         }}

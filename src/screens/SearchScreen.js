@@ -8,14 +8,18 @@ function SearchScreen(props) {
   const onPressed = (query, selection) => {
     props.requestData();
     props.getData(query, selection);
+    props.navigation.navigate('Spinner');
   };
 
-  const onNavigate = () => {
-    props.navigation.navigate('List');
-  };
-
-  return <SearchComponent pressed={onPressed} navigate={onNavigate} />;
+  return <SearchComponent pressed={onPressed} />;
 }
+
+const mapStateToProps = (state, props) => {
+  return {
+    repos: state.repositories,
+    isLoading: state.isLoading,
+  };
+};
 
 const mapPropsToDisptch = dispatch => {
   return {
@@ -25,6 +29,6 @@ const mapPropsToDisptch = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapPropsToDisptch,
 )(SearchScreen);
