@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import {Bubbles, DoubleBounce, Bars, Pulse} from 'react-native-loader';
+import {View, StyleSheet} from 'react-native';
+import {Bubbles} from 'react-native-loader';
 
 export default function Spinner(props) {
   useEffect(() => {

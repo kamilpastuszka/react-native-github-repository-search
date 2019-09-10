@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
 import {Content, Card, CardItem, Body} from 'native-base';
 
 export default function ListComponent({name, description, selected, stars}) {

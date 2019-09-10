@@ -36,6 +36,7 @@ const App = props => {
             <Button
               style={styles.searchButton}
               title="Search"
+              color="black"
               onPress={props.pressed.bind(this, query, selection)}
             />
           </View>
@@ -69,8 +70,8 @@ const styles = StyleSheet.create({
   },
   textInput: {
     height: 40,
-    borderColor: '#3399ff',
-    borderWidth: 2,
+    borderColor: 'black',
+    borderWidth: 1,
     minWidth: 50,
   },
   searchButtonView: {
@@ -78,8 +79,8 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   searchButton: {
-    color: 'grey',
-    fontSize: 20,
+    color: 'black',
+    fontSize: 30,
   },
   pickerSelect: {
     borderWidth: 2,

@@ -8,7 +8,7 @@ function SearchScreen(props) {
   const onPressed = (query, selection) => {
     props.requestData();
     props.getData(query, selection);
-    props.navigation.navigate('Spinner');
+    props.navigation.navigate('List');
   };
 
   return <SearchComponent pressed={onPressed} />;

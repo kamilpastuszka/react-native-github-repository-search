@@ -12,7 +12,10 @@ function DetailScreen(props) {
   return (
     <DetailComponent
       name={selectedRepo.name}
+      description={selectedRepo.description}
+      ownerPhoto={selectedRepo.owner.awatar_url}
       fullName={selectedRepo.full_name}
+      stars={selectedRepo.stargazers_count}
     />
   );
 }
