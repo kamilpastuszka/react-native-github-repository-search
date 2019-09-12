@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {requestApiData, getApiData} from '../actions/actions';
+import PropTypes from 'prop-types';
 
 import SearchComponent from '../components/search/index';
 
@@ -26,6 +27,11 @@ const mapPropsToDisptch = dispatch => {
     requestData: () => dispatch(requestApiData()),
     getData: (q, s) => dispatch(getApiData(q, s)),
   };
+};
+
+SearchScreen.propTypes = {
+  repositories: PropTypes.array,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export default connect(
