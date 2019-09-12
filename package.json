@@ -1,7 +1,15 @@
 {
   "name": "react-native-github-repository-search",
-  "version": "0.0.1",
-  "private": true,
+  "version": "1.0.0",
+  "description": "React Native application for looking up Github repositories",
+  "keywords": [
+    "React Native",
+    "Redux",
+    "Redux-Saga",
+    "React-Navigation",
+    "GitHub"
+  ],
+  "author": "Kamil Pastuszka",
   "scripts": {
     "start": "react-native start",
     "test": "jest",
