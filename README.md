@@ -10,6 +10,6 @@
 
 ##
 
-<img src="./images/Details.png" width="300px">
+<img src="./images/details.png" width="300px">
 
 ### Project in progress
