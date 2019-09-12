@@ -43,6 +43,10 @@ function ListScreen(props) {
   return List;
 }
 
+ListScreen.navigationOptions = {
+  headerTitle: 'Found Repositories',
+};
+
 const mapStateToProps = state => {
   return {
     repositories: state.repositories,

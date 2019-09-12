@@ -23,6 +23,10 @@ function DetailScreen(props) {
   );
 }
 
+DetailScreen.navigationOptions = {
+  headerTitle: 'Selected Repository',
+};
+
 const mapStateToProps = state => {
   return {
     repositories: state.repositories,

@@ -22,6 +22,14 @@ const mapStateToProps = (state, props) => {
   };
 };
 
+SearchScreen.navigationOptions = {
+  headerTitle: 'Search Repositories',
+  headerTitleStyle: {
+    textAlign: 'center',
+    flex: 1,
+  },
+};
+
 const mapPropsToDisptch = dispatch => {
   return {
     requestData: () => dispatch(requestApiData()),
