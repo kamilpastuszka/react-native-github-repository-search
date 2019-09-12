@@ -1,24 +1,26 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {FlatList} from 'react-native';
 import {connect} from 'react-redux';
 import ListComponent from '../components/list/index';
-import {View, Text} from 'react-native';
+import Spinner from '../components/Spinner';
 
 function ListScreen(props) {
-  const repositories = props.repositories;
+  useEffect(() => {}, [isLoading, repositories]);
+
+  const {isLoading, repositories} = props;
 
   const listItem = data => {
+    const {name, description, stargazers_count, id} = data.item;
     return (
       <ListComponent
-        name={data.item.name}
-        description={data.item.description}
-        stars={data.item.stargazers_count}
-        avatar={data.item.avatar_url}
+        name={name}
+        description={description}
+        stars={stargazers_count}
         selected={() => {
           props.navigation.navigate({
             routeName: 'Detail',
             params: {
-              itemId: data.item.id,
+              itemId: id,
             },
           });
         }}
@@ -26,37 +28,25 @@ function ListScreen(props) {
     );
   };
 
-  if (props.isLoading) {
-    return (
-      <View>
-        <Text>errr</Text>
-      </View>
-    );
+  let List = (
+    <FlatList
+      keyExtractor={(item, index) => item.id.toString()}
+      data={repositories}
+      renderItem={listItem}
+    />
+  );
+
+  if (isLoading && repositories.length <= 0) {
+    List = <Spinner />;
   }
-  if (!props.isLoading) {
-    return (
-      <FlatList
-        keyExtractor={(item, index) => item.id.toString()}
-        data={repositories}
-        renderItem={listItem}
-      />
-    );
-  }
+
+  return List;
 }
-
-//  return ListComponent;
-
-// <FlatList
-//   keyExtractor={(item, index) => item.id.toString()}
-//   data={repositories}
-//   renderItem={listItem}
-// />
-//
 
 const mapStateToProps = state => {
   return {
     repositories: state.repositories,
-    isLoading: state.isL,
+    isLoading: state.isLoading,
   };
 };
 

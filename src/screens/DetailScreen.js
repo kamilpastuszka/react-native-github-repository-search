@@ -13,9 +13,12 @@ function DetailScreen(props) {
     <DetailComponent
       name={selectedRepo.name}
       description={selectedRepo.description}
-      ownerPhoto={selectedRepo.owner.awatar_url}
+      ownerLogin={selectedRepo.owner.login}
+      ownerAvatar={selectedRepo.owner.avatar_url}
       fullName={selectedRepo.full_name}
       stars={selectedRepo.stargazers_count}
+      watchers={selectedRepo.watchers}
+      forks={selectedRepo.forks}
     />
   );
 }

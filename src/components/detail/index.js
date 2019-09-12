@@ -1,16 +1,17 @@
 import React from 'react';
 import {Image, View, StyleSheet} from 'react-native';
-import {Card, CardItem, Text, Body, Left} from 'native-base';
+import {Card, CardItem, Text, Body, Left, Thumbnail} from 'native-base';
 
 export default function DetailComponent({
   name,
   description,
-  ownerPhoto,
+  ownerAvatar,
+  ownerLogin,
   fullName,
   stars,
+  watchers,
+  forks,
 }) {
-  const img = ownerPhoto;
-
   return (
     <>
       <View style={styles.detailContainerView}>
@@ -42,19 +43,13 @@ export default function DetailComponent({
           </CardItem>
           <CardItem>
             <Left>
-              <Image
-                source={{uri: img}}
-                style={{width: 55, height: 55, borderRadius: 37.5}}
-              />
+              <Image source={{uri: ownerAvatar}} style={styles.avatarImg} />
               <Body>
-                <Text>{fullName}</Text>
-                <Text note>to complete</Text>
+                <Text>{ownerLogin}</Text>
               </Body>
             </Left>
           </CardItem>
         </Card>
-
-        {/* <Image source={uri: props.avatar }></Image> */}
 
         <Card>
           <CardItem header bordered style={styles.headerView}>
@@ -66,10 +61,10 @@ export default function DetailComponent({
                 <Text>Stars: {stars} </Text>
               </View>
               <View style={styles.detailCardBodyView}>
-                <Text>Forks:</Text>
+                <Text>Forks: {forks}</Text>
               </View>
               <View style={styles.detailCardBodyView}>
-                <Text>Watchers: </Text>
+                <Text>Watchers: {watchers} </Text>
               </View>
             </Body>
           </CardItem>
@@ -97,8 +92,14 @@ const styles = StyleSheet.create({
   },
   detailsCardBody: {
     flexDirection: 'row',
+    flex: 1,
   },
   detailCardBodyView: {
     flex: 1,
+  },
+  avatarImg: {
+    width: 65,
+    height: 65,
+    borderRadius: 37.5,
   },
 });
