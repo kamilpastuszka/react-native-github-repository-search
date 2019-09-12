@@ -2,14 +2,14 @@
 
 ## Screens
 
-<img src="./images/search.png" width="300px">
+<img src="./images/Search.png" width="300px">
 
 ##
 
-<img src="./images/list.png" width="300px">
+<img src="./images/List.png" width="300px">
 
 ##
 
-<img src="./images/details.png" width="300px">
+<img src="./images/Details.png" width="300px">
 
 ### Project in progress
