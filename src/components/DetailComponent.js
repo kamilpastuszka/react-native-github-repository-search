@@ -1,6 +1,6 @@
 import React from 'react';
 import {Image, View, StyleSheet} from 'react-native';
-import {Card, CardItem, Text, Body, Left, Thumbnail} from 'native-base';
+import {Card, CardItem, Text, Body, Left} from 'native-base';
 
 export default function DetailComponent({
   name,
