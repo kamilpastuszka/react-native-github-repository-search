@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import DetailComponent from '../components/detail/index';
+import DetailComponent from '../components/DetailComponent';
 
 function DetailScreen(props) {
   const itemId = props.navigation.getParam('itemId');

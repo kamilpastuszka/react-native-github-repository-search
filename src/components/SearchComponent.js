@@ -1,6 +1,6 @@
 import React, {Fragment, useState} from 'react';
 import {StyleSheet, View, Text, TextInput, Button, Picker} from 'react-native';
-import {programmingLanguages} from '../../api/constants';
+import {programmingLanguages} from '../api/constants';
 
 const App = props => {
   const [query, setQuery] = useState('');

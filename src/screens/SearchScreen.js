@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {requestApiData, getApiData} from '../actions/actions';
 import PropTypes from 'prop-types';
 
-import SearchComponent from '../components/search/index';
+import SearchComponent from '../components/SearchComponent';
 
 function SearchScreen(props) {
   const onPressed = (query, selection) => {
