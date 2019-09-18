@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {FlatList} from 'react-native';
+import {FlatList, View} from 'react-native';
 import {connect} from 'react-redux';
 import ListComponent from '../components/ListComponent';
 import Spinner from '../components/Spinner';
