@@ -1,13 +1,15 @@
 import React, {useEffect} from 'react';
 import {FlatList, View} from 'react-native';
 import {connect} from 'react-redux';
+import {setDataError} from '../actions/actions';
 import ListComponent from '../components/ListComponent';
-import Spinner from '../components/Spinner';
+import Spinner from '../components/helpers/Spinner';
+import Error from '../components/helpers/Error';
 
 function ListScreen(props) {
-  useEffect(() => {}, [isLoading, repositories]);
+  useEffect(() => {}, [isLoading, repositories, isError]);
 
-  const {isLoading, repositories} = props;
+  const {isLoading, repositories, isError} = props;
 
   const listItem = data => {
     const {name, description, stargazers_count, id} = data.item;
@@ -36,8 +38,17 @@ function ListScreen(props) {
     />
   );
 
-  if (isLoading && repositories.length <= 0) {
+  if (isLoading && !isError) {
     List = <Spinner />;
+    setTimeout(() => {
+      if (repositories === undefined) {
+        props.setApiError();
+      }
+    }, 5000);
+  }
+
+  if (isError) {
+    List = <Error />;
   }
 
   return List;
@@ -47,11 +58,21 @@ ListScreen.navigationOptions = {
   headerTitle: 'Found Repositories',
 };
 
+const mapPropsToDisptch = dispatch => {
+  return {
+    setApiError: () => dispatch(setDataError()),
+  };
+};
+
 const mapStateToProps = state => {
   return {
     repositories: state.repositories,
     isLoading: state.isLoading,
+    isError: state.isApiError,
   };
 };
 
-export default connect(mapStateToProps)(ListScreen);
+export default connect(
+  mapStateToProps,
+  mapPropsToDisptch,
+)(ListScreen);

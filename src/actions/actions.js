@@ -16,3 +16,9 @@ export const saveApiData = data => {
     data,
   };
 };
+
+export const setDataError = () => {
+  return {
+    type: actionTypes.SET_API_DATA_ERROR,
+  };
+};

@@ -7,6 +7,7 @@ const initialState = {
   },
   repositories: [],
   isLoading: false,
+  isApiError: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -15,6 +16,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: true,
+        isApiError: false,
       };
 
     case actionTypes.GET_API_DATA:
@@ -26,12 +28,31 @@ const reducer = (state = initialState, action) => {
           selection: action.selection,
         },
       };
+
+    case actionTypes.SET_API_DATA_LOADING_TRUE:
+      return {
+        ...state,
+        isLoading: true,
+      };
+
     case actionTypes.SAVE_API_DATA:
       return {
         ...state,
         repositories: action.data.items,
+      };
+
+    case actionTypes.SET_API_DATA_LOADING_FALSE:
+      return {
+        ...state,
         isLoading: false,
       };
+
+    case actionTypes.SET_API_DATA_ERROR:
+      return {
+        ...state,
+        isApiError: true,
+      };
+
     default:
       return state;
   }
