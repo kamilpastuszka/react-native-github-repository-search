@@ -22,14 +22,6 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-SearchScreen.navigationOptions = {
-  headerTitle: 'Search Repositories',
-  headerTitleStyle: {
-    textAlign: 'center',
-    flex: 1,
-  },
-};
-
 const mapPropsToDisptch = dispatch => {
   return {
     requestData: () => dispatch(requestApiData()),
@@ -38,8 +30,18 @@ const mapPropsToDisptch = dispatch => {
 };
 
 SearchScreen.propTypes = {
-  repositories: PropTypes.array,
+  repos: PropTypes.array.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  getData: PropTypes.func.isRequired,
+  requestData: PropTypes.func.isRequired,
+};
+
+SearchScreen.navigationOptions = {
+  headerTitle: 'Search Repositories',
+  headerTitleStyle: {
+    textAlign: 'center',
+    flex: 1,
+  },
 };
 
 export default connect(

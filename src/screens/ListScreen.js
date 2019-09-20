@@ -5,6 +5,7 @@ import {setDataError} from '../actions/actions';
 import ListComponent from '../components/ListComponent';
 import Spinner from '../components/helpers/Spinner';
 import Error from '../components/helpers/Error';
+import PropTypes from 'prop-types';
 
 function ListScreen(props) {
   useEffect(() => {}, [isLoading, repositories, isError]);
@@ -54,10 +55,6 @@ function ListScreen(props) {
   return List;
 }
 
-ListScreen.navigationOptions = {
-  headerTitle: 'Found Repositories',
-};
-
 const mapPropsToDisptch = dispatch => {
   return {
     setApiError: () => dispatch(setDataError()),
@@ -70,6 +67,17 @@ const mapStateToProps = state => {
     isLoading: state.isLoading,
     isError: state.isApiError,
   };
+};
+
+ListScreen.propTypes = {
+  repositories: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  isError: PropTypes.bool.isRequired,
+  setApiError: PropTypes.func.isRequired,
+};
+
+ListScreen.navigationOptions = {
+  headerTitle: 'Found Repositories',
 };
 
 export default connect(

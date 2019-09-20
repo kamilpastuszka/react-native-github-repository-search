@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import DetailComponent from '../components/DetailComponent';
+import PropTypes from 'prop-types';
 
 function DetailScreen(props) {
   const itemId = props.navigation.getParam('itemId');
@@ -23,14 +24,18 @@ function DetailScreen(props) {
   );
 }
 
-DetailScreen.navigationOptions = {
-  headerTitle: 'Selected Repository',
-};
-
 const mapStateToProps = state => {
   return {
     repositories: state.repositories,
   };
+};
+
+DetailScreen.propTypes = {
+  repositories: PropTypes.array.isRequired,
+};
+
+DetailScreen.navigationOptions = {
+  headerTitle: 'Selected Repository',
 };
 
 export default connect(mapStateToProps)(DetailScreen);

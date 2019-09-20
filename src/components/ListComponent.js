@@ -27,7 +27,7 @@ export default function ListComponent({name, description, selected, stars}) {
 
 ListComponent.propTypes = {
   name: PropTypes.string,
-  description: PropTypes.number,
+  description: PropTypes.string,
   selected: PropTypes.func,
   stars: PropTypes.number,
 };
