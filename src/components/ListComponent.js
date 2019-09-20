@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, TouchableOpacity} from 'react-native';
 import {Content, Card, CardItem, Body} from 'native-base';
+import PropTypes from 'prop-types';
 
 export default function ListComponent({name, description, selected, stars}) {
   return (
@@ -23,3 +24,10 @@ export default function ListComponent({name, description, selected, stars}) {
     </TouchableOpacity>
   );
 }
+
+ListComponent.propTypes = {
+  name: PropTypes.string,
+  description: PropTypes.number,
+  selected: PropTypes.func,
+  stars: PropTypes.number,
+};

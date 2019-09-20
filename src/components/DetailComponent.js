@@ -1,6 +1,7 @@
 import React from 'react';
 import {Image, View, StyleSheet} from 'react-native';
 import {Card, CardItem, Text, Body, Left} from 'native-base';
+import PropTypes from 'prop-types';
 
 export default function DetailComponent({
   name,
@@ -103,3 +104,14 @@ const styles = StyleSheet.create({
     borderRadius: 37.5,
   },
 });
+
+DetailComponent.propTypes = {
+  name: PropTypes.string,
+  description: PropTypes.string,
+  ownerAvatar: PropTypes.string,
+  ownerLogin: PropTypes.string,
+  fullName: PropTypes.string,
+  stars: PropTypes.number,
+  watchers: PropTypes.number,
+  forks: PropTypes.number,
+};
